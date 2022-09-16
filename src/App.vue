@@ -1,30 +1,43 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <NavBar/>
+  <router-view></router-view>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import NavBar from "@/components/NavBar";
+export default {
+  components: {NavBar}
 }
+</script>
 
-nav {
-  padding: 30px;
+<style lang="sass">
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: "Open Sans", sans-serif
+  text-decoration: none
+  &:visited
+    color: #eee
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+a
+  text-decoration: none
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+#app
+  display: flex
+  min-height: 100vh
+
+body
+  background: rgba(224,228,238,0.95)
+.wrapper
+  display: flex
+
+.container
+  max-width: 1140px
+  padding: 20px
+  margin: 0 auto
+
+@media (max-width: 700px)
+  #app
+    display: block
 </style>
