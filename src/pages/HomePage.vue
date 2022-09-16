@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-    <h1>Home Page</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Eaque eveniet ipsa nihil officia omnis perspiciatis tenetur, vitae?
-      Deleniti dolor ea eos, esse labore laborum perferendis possimus praesentium quam qui quis?
-    </p>
-
+    <h1>Добро пожаловать!</h1>
+    <h2>Данный проект позволяет получить данные о вашем персонаже в игре World of Warcraft, гильдии, нынешних
+      подземельях и рейдах.
+    </h2>
+    <h3>@nrylord</h3>
   </div>
 </template>
 
@@ -14,6 +13,11 @@
 export default {}
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+.container
+  text-align: center
 
+  h2, h3
+    font-weight: 300
+    margin: 30px
 </style>

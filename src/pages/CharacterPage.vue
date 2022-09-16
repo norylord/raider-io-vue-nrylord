@@ -1,8 +1,14 @@
 <template>
   <div class="container">
-    <h1>Character Page</h1>
-    <custom-input v-model="cfg.name" placeholder="Введите имя персонажа..."/>
-    <custom-button @click="getCharacter">Запрос</custom-button>
+
+    <div class="character-form">
+      <custom-input v-model="cfg.name" placeholder="Введите имя персонажа..."/>
+      <div class="button-container">
+        <custom-button @click="getCharacter">Запрос</custom-button>
+        <my-select v-model="cfg.realm" :options="realmArray"/>
+      </div>
+    </div>
+
     <div v-if="character.hasOwnProperty('name')" class="character-card">
       <img :src="character.thumbnail_url" alt="" style="border-radius: 50%; width: 125px; height: 125px">
       <div class="character-card__desc">
@@ -13,8 +19,8 @@
         <h3>Специализация: {{ character.active_spec_name }}</h3>
         <h3>Раса: {{ character.race }}</h3>
         <h3>Сервер: {{ character.realm }}</h3>
+        <h3>Очки достижений: {{ character.achievement_points }}</h3>
         <custom-button>Raider.IO</custom-button>
-        <h3>{{ character.achievement_points }}</h3>
       </div>
     </div>
   </div>
@@ -24,17 +30,20 @@
 import CustomInput from "@/components/UI/CustomInput";
 import RequestService from "@/api/RequestService";
 import CustomButton from "@/components/UI/CustomButton";
+import realmList from "@/static/realmList";
+import MySelect from "@/components/UI/CustomSelect";
 
 export default {
-  components: {CustomButton, CustomInput},
+  components: {MySelect, CustomButton, CustomInput},
   data() {
     return {
       character: {},
       cfg: {
-        name: 'Лобера',
+        name: '',
         region: 'eu',
-        realm: 'borean-tundra'
-      }
+        realm: ''
+      },
+      realmArray: realmList
     }
   },
   methods: {
@@ -45,25 +54,34 @@ export default {
     }
   },
   mounted() {
-    this.getCharacter()
   }
 
 }
 </script>
 
 <style lang="sass" scoped>
-.character-card
+.character-form
+
+
+.button-container
   display: flex
-  justify-content: space-around
-  flex-flow: row wrap
-  background: #fff
-  padding: 20px
+  align-items: center
+  justify-content: space-between
+
+
+.character-card
+  background: linear-gradient(to right, #ffffff, #ffffff)
+  padding: 40px
   border-radius: 20px
   box-shadow: 0 0 25px #c3c3c3
   margin: 20px 0
 
+
   &__desc
     display: flex
     flex-flow: column wrap
-    padding: 20px
+
+    h3
+      margin: 10px
+      font-weight: 400
 </style>
