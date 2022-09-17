@@ -24,8 +24,9 @@ a
   text-decoration: none
 
 #app
-  display: flex
   min-height: 100vh
+  display: flex
+  justify-content: center
 
 body
   background: rgba(224,228,238,0.95)
@@ -35,7 +36,14 @@ body
 .container
   max-width: 1140px
   padding: 20px
+<<<<<<< Updated upstream
   margin: 0 auto
+=======
+  display: flex
+  flex-grow: 1
+  flex-direction: column
+  justify-content: center
+>>>>>>> Stashed changes
 
 @media (max-width: 700px)
   #app
