@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.character-form
-
-
 .button-container
   display: flex
   align-items: center
@@ -82,6 +79,6 @@ export default {
     flex-flow: column wrap
 
     h3
-      margin: 10px
+      margin: 10px 0
       font-weight: 400
 </style>

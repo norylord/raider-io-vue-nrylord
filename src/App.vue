@@ -1,6 +1,10 @@
 <template>
   <NavBar/>
-  <router-view></router-view>
+  <div class="wrapper">
+    <router-view></router-view>
+
+
+  </div>
 </template>
 
 <script>
@@ -27,22 +31,20 @@ a
 
 #app
   min-height: 100vh
-  display: flex
-  justify-content: center
+
 
 body
   background: rgba(224, 228, 238, 0.95)
 
 .wrapper
-  display: flex
+  margin-left: 60px
 
 .container
   max-width: 1140px
   padding: 20px
-
+  margin: 0 auto
 
 
 @media (max-width: 700px)
-  #app
-    display: block
+
 </style>
