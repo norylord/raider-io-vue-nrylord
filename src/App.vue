@@ -26,8 +26,9 @@ a
   text-decoration: none
 
 #app
-  display: flex
   min-height: 100vh
+  display: flex
+  justify-content: center
 
 body
   background: rgba(224, 228, 238, 0.95)
@@ -38,7 +39,8 @@ body
 .container
   max-width: 1140px
   padding: 20px
-  margin: auto
+
+
 
 @media (max-width: 700px)
   #app
