@@ -5,6 +5,7 @@
 
 <script>
 import NavBar from "@/components/NavBar";
+
 export default {
   components: {NavBar}
 }
@@ -17,6 +18,7 @@ export default {
   box-sizing: border-box
   font-family: "Open Sans", sans-serif
   text-decoration: none
+
   &:visited
     color: #eee
 
@@ -29,21 +31,16 @@ a
   justify-content: center
 
 body
-  background: rgba(224,228,238,0.95)
+  background: rgba(224, 228, 238, 0.95)
+
 .wrapper
   display: flex
 
 .container
   max-width: 1140px
   padding: 20px
-<<<<<<< Updated upstream
-  margin: 0 auto
-=======
-  display: flex
-  flex-grow: 1
-  flex-direction: column
-  justify-content: center
->>>>>>> Stashed changes
+
+
 
 @media (max-width: 700px)
   #app
