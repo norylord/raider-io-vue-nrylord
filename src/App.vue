@@ -27,6 +27,7 @@ export default {
     color: #eee
 
 a
+  color: #eee
   text-decoration: none
 
 #app
@@ -47,4 +48,6 @@ body
 
 @media (max-width: 700px)
 
+.wrapper
+  margin: 0
 </style>

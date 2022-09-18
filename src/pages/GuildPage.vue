@@ -17,7 +17,7 @@
       </div>
       <div class="guild-card__raids">
         <div v-for="(progress, raid) in raidProgress" :key="raid" class="guild-card__raids__card">
-          <h3>{{ raid }}</h3>
+          <h2>{{ raid }}</h2>
           <p>Сводка: {{ progress.summary }}</p>
           <p>Всего боссов: {{ progress.total_bosses }}</p>
           <p>Нормальная сложность: {{ progress.normal_bosses_killed }}</p>
@@ -42,6 +42,7 @@ export default {
     return {
       guild: {},
       cfg: {
+        // name: 'После тьмы',
         name: 'Маленькая инди компания',
         region: 'eu',
         realm: 'borean-tundra'
@@ -72,19 +73,22 @@ export default {
 
 .horde
   background: linear-gradient(to bottom, #e13030, #4f1010)
-  color: #eee
 
   button
-    background: linear-gradient(to right, #000000, #530000)
+    background: #800000
 
 .alliance
   background: linear-gradient(to bottom, #4e85ea, #102b4f)
 
+  button
+    background: #1955ae
+
 .guild-card
-  padding: 40px
+  padding: 30px
   border-radius: 20px
   box-shadow: 0 0 25px #c3c3c3
   margin: 20px 0
+  color: #eee
 
 
   &__desc
@@ -103,6 +107,8 @@ export default {
     &__card
       display: flex
       flex-direction: column
+      background: rgba(238, 238, 238, 0.2)
+      border-radius: 15px
       flex: 1 0 25%
       padding: 20px
       margin: 20px

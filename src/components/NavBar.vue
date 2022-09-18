@@ -46,7 +46,7 @@ export default {}
   flex-flow: column nowrap
   background: #212121
   color: #eee
-  position: absolute
+  position: fixed
   top: 0
   left: 0
   height: 100%

@@ -9,7 +9,8 @@
       </div>
     </div>
 
-    <div v-if="character.hasOwnProperty('name')" class="character-card">
+    <div v-if="character.hasOwnProperty('name')"
+         :class="['character-card', character.faction === 'horde' ? 'horde' : 'alliance']">
       <img :src="character.thumbnail_url" alt="" style="border-radius: 50%; width: 125px; height: 125px">
       <div class="character-card__desc">
         <h1>{{ character.name }}</h1>
@@ -39,9 +40,9 @@ export default {
     return {
       character: {},
       cfg: {
-        name: '',
+        name: 'Лобера',
         region: 'eu',
-        realm: ''
+        realm: 'borean-tundra'
       },
       realmArray: realmList
     }
@@ -54,6 +55,7 @@ export default {
     }
   },
   mounted() {
+    this.getCharacter()
   }
 
 }
@@ -65,9 +67,20 @@ export default {
   align-items: center
   justify-content: space-between
 
+.horde
+  background: linear-gradient(to bottom, #e13030, #4f1010)
+
+  button
+    background: #b00000
+
+.alliance
+  background: linear-gradient(to bottom, #4e85ea, #102b4f)
+
+  button
+    background: #1955ae
 
 .character-card
-  background: linear-gradient(to right, #ffffff, #ffffff)
+  color: #eee
   padding: 40px
   border-radius: 20px
   box-shadow: 0 0 25px #c3c3c3
