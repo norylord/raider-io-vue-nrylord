@@ -5,29 +5,26 @@
       <img alt="" src="../assets/telegram.svg" style="align-self: center;">
       <img alt="" src="../assets/github.svg" style="align-self: center;">
     </div>
-    <input id="navbar__toggle" style="align-self: center;" type="checkbox">
-    <label class='navbar__button__container' for="navbar__toggle">
-      <div class='navbar__button'></div>
-    </label>
-    <div class="navbar__items__section">
+    <button id="navbar__toggle" @click="toggleNavItems"><img alt="" src="../assets/menu.svg"></button>
+    <div v-show="mobileView" class="navbar__items__section">
       <router-link to="/">
-        <div class="navbar__item"><img alt="" src="../assets/sword.svg"><h4 class="navbar__item__desc">Главная</h4>
+        <div @click="toggleNavItems" class="navbar__item"><img alt="" src="../assets/sword.svg"><h4 class="navbar__item__desc">Главная</h4>
         </div>
       </router-link>
       <router-link to="/character">
-        <div class="navbar__item"><img alt="" src="../assets/helmet.svg"><h4 class="navbar__item__desc">Персонаж</h4>
+        <div @click="toggleNavItems" class="navbar__item"><img alt="" src="../assets/helmet.svg"><h4 class="navbar__item__desc">Персонаж</h4>
         </div>
       </router-link>
       <router-link to="/guild">
-        <div class="navbar__item"><img alt="" src="../assets/guild.svg"><h4 class="navbar__item__desc">Гильдия</h4>
+        <div @click="toggleNavItems" class="navbar__item"><img alt="" src="../assets/guild.svg"><h4 class="navbar__item__desc">Гильдия</h4>
         </div>
       </router-link>
       <router-link to="/equip">
-        <div class="navbar__item"><img alt="" src="../assets/dungeon.svg"><h4 class="navbar__item__desc">Подземелья</h4>
+        <div @click="toggleNavItems" class="navbar__item"><img alt="" src="../assets/dungeon.svg"><h4 class="navbar__item__desc">Подземелья</h4>
         </div>
       </router-link>
       <router-link to="/progress">
-        <div class="navbar__item"><img alt="" src="../assets/raid.svg"><h4 class="navbar__item__desc">Рейды</h4></div>
+        <div @click="toggleNavItems" class="navbar__item"><img alt="" src="../assets/raid.svg"><h4 class="navbar__item__desc">Рейды</h4></div>
       </router-link>
     </div>
 
@@ -35,7 +32,30 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      mobileView: true
+    }
+  },
+  methods: {
+    toggleNavItems() {
+      if (window.innerWidth < 700){
+        this.mobileView === false ? this.mobileView = true : this.mobileView = false
+      }
+    }
+  },
+  mounted() {
+    this.mobileView = window.innerWidth > 700
+    window.addEventListener('resize', () => {
+      this.mobileView = window.innerWidth > 700
+    })
+  },
+  beforeMount() {
+
+  }
+
+}
 </script>
 
 <style lang="sass" scoped>
@@ -62,36 +82,16 @@ export default {}
 
   #navbar__toggle
     display: none
+    border: 0
+    padding: 5px
+    border-radius: 5px
+    background: #424242
+    cursor: pointer
 
-  .navbar__button,
-  .navbar__button::before,
-  .navbar__button::after
-    display: block
-    background-color: #949494
-    position: absolute
-    height: 4px
-    width: 30px
-    transition: transform 500ms cubic-bezier(.17, .67, 1, .36)
-    border-radius: 2px
+    img
+      width: 30px
 
-  .navbar__button::before
-    content: ''
-    margin-top: -8px
 
-  .navbar__button::after
-    content: ''
-    margin-top: 8px
-
-  #navbar__toggle:checked + .navbar__button__container .navbar__button::before
-    margin-top: 0
-    transform: rotate(135deg)
-
-  #navbar__toggle:checked + .navbar__button__container .navbar__button
-    background: rgba(255, 255, 255, 0)
-
-  #navbar__toggle:checked + .navbar__button__container .navbar__button::after
-    margin-top: 0
-    transform: rotate(-135deg)
 
   &:hover
     transition: all 0.3s linear
@@ -146,26 +146,32 @@ export default {}
     justify-content: space-around
     position: static
 
+    &:hover
+      background: #212121
+
     &__button__container
       display: flex
 
+
     &__img__section
       flex-flow: row nowrap
+      padding: 10px
       flex: 0 0 50%
 
       img
         margin: 5px 10px
 
     &__items__section
-      display: none
       flex: 1 0 100%
 
     &__item
       flex: 1 0 100%
+      padding: 30px 4rem
       display: flex
-      justify-content: center
+      justify-content: space-around
+      background: #1c1c1c
 
-  input:checked
-    ~ .navbar__items__section
+
+    #navbar__toggle
       display: flex
 </style>
