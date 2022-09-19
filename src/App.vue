@@ -48,6 +48,6 @@ body
 
 @media (max-width: 700px)
 
-.wrapper
-  margin: 0
+  .wrapper
+    margin: 0
 </style>
