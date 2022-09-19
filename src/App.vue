@@ -46,7 +46,7 @@ body
   margin: 0 auto
 
 
-@media (max-width: 700px)
+@media (max-width: 768px)
 
   .wrapper
     margin: 0

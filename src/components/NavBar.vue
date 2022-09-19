@@ -40,15 +40,15 @@ export default {
   },
   methods: {
     toggleNavItems() {
-      if (window.innerWidth < 700){
+      if (window.innerWidth < 768){
         this.mobileView === false ? this.mobileView = true : this.mobileView = false
       }
     }
   },
   mounted() {
-    this.mobileView = window.innerWidth > 700
+    this.mobileView = window.innerWidth > 768
     window.addEventListener('resize', () => {
-      this.mobileView = window.innerWidth > 700
+      this.mobileView = window.innerWidth > 768
     })
   },
   beforeMount() {
@@ -139,7 +139,7 @@ export default {
     width: 40px
 
 
-@media (max-width: 700px)
+@media (max-width: 768px)
   .navbar
     display: flex
     flex-flow: row wrap
